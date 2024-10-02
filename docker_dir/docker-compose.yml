@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  fastapi:
+    container_name: fastapi_container
+    build: ./app
+    depends_on:
+      - db_prod
+      - db_test
+    ports:
+      - 8000:8000
+    env_file:
+      - ./app/app/core/.env.docker
+
+  db_prod:
+    container_name: db_prod_container
+    image: postgres
+    environment:
+      POSTGRES_USER: dima
+      POSTGRES_PASSWORD: 1289
+      POSTGRES_DB: my_keeps
+    ports:
+      - 5433:5432
+
+  db_test:
+    container_name: db_test_container
+    image: postgres
+    environment:
+      POSTGRES_USER: dima
+      POSTGRES_PASSWORD: 1289
+      POSTGRES_DB: test_db
+    ports:
+      - 5434:5432
