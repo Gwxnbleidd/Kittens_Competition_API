@@ -4,3 +4,6 @@
 Сделать это можно также в терминале с помощью python3 main.py или python main.py
 
 Чтобы запустить это в docker-compose, нужно зайти в директорию docker_dir и в терминале прописать docker-compose up.
+
+ссылка на Swagger
+http://127.0.0.1:8000/docs
